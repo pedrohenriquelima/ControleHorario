@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Even3 </title>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/angular-clock.css" />
+    <link rel="stylesheet" href="~/Content/loading-bar.min.css" />
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    
+   
+    @RenderBody();
+
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/tether.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/app/app.js"></script>
+    
+    <script src="~/app/shared/services/cargaHorariaService.js"></script>
+    <script src="~/app/shared/services/colaboradorService.js"></script>
+    <script src="~/app/shared/services/gradeHorariosService.js"></script>
+    <script src="~/app/shared/services/loginService.js"></script>
+
+    <script src="~/app/controllers/cargaHorariaController.js"></script>
+    <script src="~/app/controllers/colaboradorController.js"></script>
+    <script src="~/app/controllers/gradeHorariosController.js"></script>
+    <script src="~/app/controllers/homeController.js"></script>
+    <script src="~/app/controllers/loginController.js"></script>
+
+    <script src="~/Scripts/angular-clock.js"></script>
+    <script src="~/Scripts/webcam.min.js"></script>
+    <script src="~/Scripts/loading-bar.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

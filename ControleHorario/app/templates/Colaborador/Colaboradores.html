@@ -1,0 +1,40 @@
+﻿<nav class="navbar navbar-inverse bg-inverse">
+    <a class="navbar-brand" href="#/Colaboradores">Colaboradores</a>
+</nav>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Lista de Colaboradores
+        </div>
+        <div class="card-body">
+            <a href="#/AddColaborador" class="btn btn-block btn-outline-primary">Adicionar Colaborador</a>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Matricula</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="colaborador in colaboradores">
+                        <td>{{colaborador.Nome}}</td>
+                        <td>{{colaborador.Email}}</td>
+                        <td>{{colaborador.Matricula}}</td>
+                        <td>
+                            <a href="#/UpdateColaborador/{{colaborador.Id}}">Editar</a>
+                            |
+                            <a href="" ng-click="deleteColaborador(colaborador.Id)">Remover</a>
+                        </td>
+                    </tr>
+                    <tr ng-if="!colaboradores || colaboradores.length == 0">
+                        <td colspan="4" style="text-align:center">
+                            Não há dados para exibir.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

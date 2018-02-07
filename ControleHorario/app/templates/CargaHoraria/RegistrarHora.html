@@ -1,0 +1,29 @@
+﻿<nav class="navbar navbar-inverse bg-inverse">
+    <a class="navbar-brand" href="#/RegistrarHora/{{hora.TipoHora}}">Registrar {{hora.TipoHora}}</a>
+</nav>
+<div class="container">
+    <form class="form-" ng-submit="registrarHora(hora)">
+        <div class="form-group">
+            <label class="col-2 col-form-label">Data</label>
+            <div class="col-10">
+                <input type="date" class="form-control" ng-model="hora.Dia">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-2 col-form-label">Hora de Entrada</label>
+            <div class="col-10">
+                <input type="time" class="form-control" ng-model="hora.Entrada">
+            </div>
+        </div>
+        <div ng-if="hora.TipoHora == 'Saida'"class="form-group">
+            <label class="col-2 col-form-label">Intervalo</label>
+            <div class="col-10">
+                <input class="form-control" type="time" ng-model="hora.Intervalo">
+            </div>
+        </div>
+        <div class="form-group-">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <a href="#/CargaHoraria" class="btn btn-dark" role="button">Cancelar</a>
+        </div>
+    </form>
+</div>

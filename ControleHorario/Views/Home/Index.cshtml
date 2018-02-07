@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Even3</a>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#/Home/{{colaborador.Id}}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#/Colaboradores">Colaboradores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#/GradeHorarios">Grade de Horários</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{colaborador.email ||  "Email"}} 
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#/UpdateColaborador/{{colaborador.Id}}">Editar Perfil</a>
+                    <a class="dropdown-item" href="#/Login">Sair</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<ng-view></ng-view>

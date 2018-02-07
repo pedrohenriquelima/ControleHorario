@@ -1,0 +1,78 @@
+﻿<nav class="navbar navbar-inverse bg-inverse">
+    <a class="navbar-brand" href="#/CargaHoraria">Carga Horária</a>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card" style="width: 20rem;">
+                <div class="card-block">
+                    <webcam on-error="onError(err)"></webcam>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 20rem;">
+                <div class="card-block ">
+                    <ds-widget-clock data-show-digital></ds-widget-clock>
+                    <ds-widget-clock show-analog theme="blue-light"></ds-widget-clock>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 20rem;">
+                <div class="card-block">
+                    <fieldset class="form-group">
+                        <legend> Registrar Horário</legend>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" ng-model="tipoHora" value="Entrada">
+                                Entrada
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" ng-model="tipoHora" value="Saida">
+                                Saída
+                            </label>
+                        </div>
+                        <a href="#/RegistrarHora/{{colaborador.io}}/{{tipoHora}}" class="btn btn-primary">Registrar Horário</a>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Lista de Horas Lançadas
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Colaborador</th>
+                            <th>Hora de Entrada</th>
+                            <th>Hora de Saída</th>
+                            <th>Intervalo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="carga in cargaHoraria">
+                            <td>{{carga.Dia}}</td>
+                            <td>{{carga.Colaborador.Nome}}</td>
+                            <td>{{carga.HoraEntrada}}</td>
+                            <td>{{carga.HoraSaida}}</td>
+                            <td>{{carga.Intervalo}}</td>
+                        </tr>
+                        <tr ng-if="!cargaHoraria || cargaHoraria.length == 0">
+                            <td colspan="5" style="text-align:center">
+                                Não há dados para exibir.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

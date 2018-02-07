@@ -1,0 +1,44 @@
+﻿<nav class="navbar navbar-inverse bg-inverse">
+    <a class="navbar-brand" href="#/GradeHorarios">Grade de Horários</a>
+</nav>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Entrada</th>
+                <th>Saída</th>
+                <th>Intervalo</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="grade in gradeHorarios">
+                <th>
+                    {{grade.DiaSemana}}
+                </th>
+                <td>
+                    <input type="time" ng-model="grade.HoraEntrada" />
+                </td>
+                <td>
+                    <input type="time" ng-model="grade.HoraSaida" />
+                </td>
+                <td>
+                    <input type="time" ng-model="grade.Intervalo" />
+                </td>
+                <td>{{totalizarHoras(grade.HoraEntrada, grade.HoraSaida, grade.Intervalo)| date:"HH:mm" }}</td>
+            </tr>
+            <tr ng-if="!gradeHorarios || gradeHorarios.length != 0">
+                <th colspan="5" style="text-align:end">
+                    Horas Totais: {{TotalHoras | date:"HH:mm"}}
+                </th>
+            </tr>
+            <tr ng-if="!gradeHorarios || gradeHorarios.length == 0">
+                <td colspan="5" style="text-align:center">
+                    Não foi possível exibir a grade de horários.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" ng-click="updateGradeHorarios()">Salvar</button>
+</div>
